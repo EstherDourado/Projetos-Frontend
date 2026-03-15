@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Restaurante, Pratos, Interativo, Italiano">
+        <meta name="description" content="Página inicial minimalista de restaurante com pratos interativos">
+        <meta name="author" content="Esther Dourado Batista">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <script src="js/script.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/status.css">
+
+    <title>Status Pedido</title>
+    </head>
+    <body>
+        <!-- Fundo Verde Arredondado -->
+        <div class="bg-shape"></div>
+
+        <!-- Cabeçalho Global -->
+        <header>
+            <div class="logo">Food Hunt</div>
+            <nav>
+                <a href="home.html">Início</a>
+                <a href="#">Cardápio</a>
+                <a href="#">Sobre</a>
+            </nav>
+        </header>
+        <main>
+            <section id="view-status" class="view active">
+                <div class="status-card">
+                    <div class="status-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h2 class="section-title" style="margin-bottom: 0.5rem;">Pedido <span>Confirmado!</span></h2>
+                    <p style="color: #666; margin-bottom: 2rem;">Obrigado, <strong id="displayClientName">Cliente</strong>! Seu pedido está sendo processado e logo chegará até você.</p>
+                    
+                    <!-- Barra de Progresso Simples -->
+                    <div class="tracking-timeline" id="trackingTimeline">
+                        <div class="track-step active" id="step1">
+                            <div class="step-circle">1</div>
+                            <div class="step-text">Recebido</div>
+                        </div>
+                        <div class="track-step" id="step2">
+                            <div class="step-circle">2</div>
+                            <div class="step-text">Preparando</div>
+                        </div>
+                        <div class="track-step" id="step3">
+                            <div class="step-circle">3</div>
+                            <div class="step-text">A Caminho</div>
+                        </div>
+                        <div class="track-step" id="step4">
+                            <div class="step-circle">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                            </div>
+                            <div class="step-text">Entregue</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 3rem;">
+                       <a href="pedido.html"><button class="btn-outline">Fazer Novo Pedido</button></a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script>
+            startTrackingSimulation();
+        </script>
+    </body>
+</html>

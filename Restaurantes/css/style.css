@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    overflow-x: hidden; /* Permite scroll vertical se o form for grande, mas trava o horizontal */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Forma Verde do Fundo - Agora fixa para acompanhar o scroll */
+.bg-shape {
+    position: fixed;
+    top: -20vh;
+    right: -10vw;
+    width: 70vw;
+    height: 140vh;
+    background: linear-gradient(135deg, #a8e5a0, #8bd683);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- Cabeçalho (Header) --- */
+header {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    gap: 3rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #2ea32e;
+}
+
+/* --- Sistema de Views (Telas) --- */
+main {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.view {
+    display: flex;
+    opacity: 0;
+    width: 100%;
+    padding: 0 5% 2rem 5%;
+    animation: fadeIn 0.5s forwards;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

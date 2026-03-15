@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Restaurante, Pratos, Interativo, Italiano">
+        <meta name="description" content="Página inicial minimalista de restaurante com pratos interativos">
+        <meta name="author" content="Esther Dourado Batista">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Food Hunt</title>
+    
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/pedido.css">
+
+        <script src="js/script.js"></script>
+    </head>    
+    <body>
+        <!-- Fundo Verde Arredondado -->
+        <div class="bg-shape"></div>
+
+        <header>
+            <div class="logo">Food Hunt</div>
+            <nav>
+                <a href="home.html">Início</a>
+                <a href="#">Cardápio</a>
+                <a href="#">Sobre</a>
+            </nav>
+        </header>
+        <main>
+        <section id="view-order" class="view">
+            <h2 class="section-title">Finalize seu <span>Pedido</span></h2>
+            
+            <div class="order-form-container">
+                <form id="checkoutForm">
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label>Escolha seu Prato Principal</label>
+                        <div class="catalog-grid" id="catalogGrid">
+                            <!-- Gerado via JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientName">Nome Completo</label>
+                            <input type="text" id="clientName" placeholder="Ex: Maria Silva" required>
+                        </div>
+                        <div class="form-group" style="flex: 0.3;">
+                            <label for="itemQty">Quantidade</label>
+                            <input type="number" id="itemQty" min="1" max="20" value="1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address">Endereço de Entrega (Rua, Número, Bairro)</label>
+                            <input type="text" id="address" placeholder="Ex: Rua das Flores, 123" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="paymentMethod">Forma de Pagamento</label>
+                            <select id="paymentMethod" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="pix">PIX</option>
+                                <option value="credito">Cartão de Crédito</option>
+                                <option value="debito">Cartão de Débito</option>
+                                <option value="dinheiro">Dinheiro (Pagamento na Entrega)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Ação -->
+                    <div class="form-actions">
+                        <a href="home.html"><button type="button" class="btn-outline">Voltar</button></a>
+                        <a href="status.html"><button type="button" class="btn-primary">Confirmar e Pagar</button></a>
+                    </div>
+                </form>
+            </div>
+        </section>
+        </main>
+
+        <script>
+            // Chama a função para renderizar o catálogo de pratos assim que a página carrega.
+            renderCatalogGrid();
+        </script>
+    </body>
+</html>

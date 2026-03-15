@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #3c3b7a, #1b013b);
+    color: #e0dced;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-top: 10vh;
+    position: relative;
+    z-index: 10; /* Mantém o texto acima das ondas */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #b06ab3, #4568dc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+ul li {
+    position: absolute;
+    border: 1px solid #b06ab3;
+    width: 30px;
+    height: 30px;
+    list-style: none;
+    opacity: 0;
+    background-color: #b06ab3;
+}
+
+/* Animação para os quadrados */
+.squares li {
+    top: 50vh;
+    left: 45vw;
+    border-radius: 5px;
+    animation: squares 10s linear infinite;
+}
+
+.squares li:nth-child(2) {
+    top: 80vh;
+    left: 10vw;
+    animation-delay: 2s;
+}
+
+.squares li:nth-child(3) {
+    top: 80vh;
+    left: 85vw;
+    animation-delay: 4s;
+}
+
+
+.squares li:nth-child(4) {
+    top: 10vh;
+    left: 70vw;
+    animation-delay: 6s;
+}
+
+.squares li:nth-child(5) {
+    top: 10vh;
+    left: 10vw;
+    animation-delay: 8s;
+}
+
+@keyframes squares {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(5);
+        opacity: 0;
+    }
+}
+
+/* Animação para os circulos */
+.circles li {
+    bottom: 0;
+    left: 15vw;
+    animation: circles 12s linear infinite;
+}
+
+.circles li:nth-child(2) {
+    left: 35vw;
+    animation-delay: 2s;
+}
+
+.circles li:nth-child(3) {
+    left: 55vw;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+    left: 75vw;
+    animation-delay: 6s;
+}
+
+.circles li:nth-child(5) {
+    left: 90vw;
+    animation-delay: 8s;
+}
+
+@keyframes circles {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+        bottom: 0;
+        border-radius: 0%;
+    }
+
+    100% {
+        transform: scale(5) rotate(1000deg);
+        opacity: 0;
+        bottom: 90vh;
+        border-radius: 100%;
+    }
+}
+
+/* Animação de Ondas */
+.waves {
+    position: fixed; /* Fixo na tela inteira */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Fica atrás do conteúdo mas na frente do fundo */
+    pointer-events: none; /* Impede que as ondas bloqueiem cliques */
+}
+
+.waves li {
+    position: absolute;
+    left: 50%;
+    width: 6000px;
+    height: 6000px;
+    margin-left: -3000px;
+    bottom: -5700px; 
+    background: rgba(176, 106, 179, 0.2); /* Cor roxa baseada no seu tema */
+    border-radius: 43%; /* Isso cria o formato irregular da onda */
+    animation: drift 15s infinite linear;
+    opacity: 1;
+    border: none;
+    z-index: 1;
+}
+
+.waves li:nth-child(2) {
+    background: rgba(69, 104, 220, 0.2);
+    bottom: -5720px;
+    border-radius: 40%;
+}
+
+.waves li:nth-child(3) {
+    background: rgba(255, 255, 255, 0.05);
+    animation: drift 28s infinite linear;
+    bottom: -5750px;
+    border-radius: 45%;
+}
+
+@keyframes drift {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

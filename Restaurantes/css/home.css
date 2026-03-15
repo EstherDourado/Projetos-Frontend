@@ -1,0 +1,163 @@
+#view-home {
+    flex-direction: row;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+}
+
+.text-section {
+    flex: 1;
+    max-width: 500px;
+}
+
+.text-section h1 {
+    color: #2ea32e;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.text-section h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+
+.text-section p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+    background-color: #2ea32e;
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 20px rgba(46, 163, 46, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background-color: #258a25;
+    box-shadow: 0 15px 25px rgba(46, 163, 46, 0.4);
+}
+
+/* Seção Interativa dos Pratos */
+.interactive-section {
+    flex: 1.2;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orbit-system {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(10%);
+}
+
+.dashed-ring {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    border: 3px dashed rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.main-plate-container {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    background-color: #fff;
+    transition: transform 0.5s ease;
+}
+
+.main-plate-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.plates-orbit-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    animation: rotateOrbit 40s linear infinite; 
+}
+
+.plates-orbit-container:hover,
+.plates-orbit-container:hover .small-plate-counter-rotator {
+    animation-play-state: paused;
+}
+
+@keyframes rotateOrbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.small-plate-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin-top: -60px; 
+    margin-left: -60px; 
+}
+
+.small-plate-counter-rotator {
+    width: 100%;
+    height: 100%;
+    animation: counterRotateOrbit 40s linear infinite; 
+}
+
+@keyframes counterRotateOrbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+.small-plate {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.small-plate:hover {
+    transform: scale(1.15);
+}
+
+.small-plate img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}

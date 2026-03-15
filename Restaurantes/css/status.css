@@ -1,0 +1,156 @@
+#view-status {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-title span {
+    color: #2ea32e;
+}
+
+.status-card {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.status-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #eaf6ea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    color: #2ea32e;
+}
+
+.status-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Timeline de Rastreamento */
+.tracking-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* Linha de fundo da timeline */
+.tracking-timeline::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background-color: #eee;
+    z-index: 0;
+}
+
+.track-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #eee;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+    border: 4px solid #fff;
+}
+
+.step-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #888;
+    transition: color 0.5s ease;
+}
+
+/* Estados da Timeline */
+.track-step.active .step-circle {
+    background-color: #2ea32e;
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(46, 163, 46, 0.2);
+}
+
+.track-step.active .step-text {
+    color: #2ea32e;
+    font-weight: 700;
+}
+
+.track-step.completed .step-circle {
+    background-color: #2ea32e;
+    color: #fff;
+}
+
+.track-step.completed .step-text {
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #2ea32e;
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 20px rgba(46, 163, 46, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background-color: #258a25;
+    box-shadow: 0 15px 25px rgba(46, 163, 46, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #555;
+    border: 2px solid #ddd;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: #888;
+    color: #222;
+}

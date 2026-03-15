@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Fundo atualizado para o gradiente roxo/azul */
+    background: linear-gradient(135deg, #3c3b7a, #1b013b);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #e0dced;
+}
+
+/* CABEÇALHO DA PÁGINA */
+header {
+    text-align: center;
+    padding: 3rem 5% 1rem 5%;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #b5a8cc;
+}
+
+/* NAVEGAÇÃO DE VOLTA */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-3px);
+    border-color: rgba(176, 106, 179, 0.5);
+}
+
+
+/* Animação de Ondas */
+.waves {
+    position: fixed; /* Fixo na tela inteira */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Fica atrás do conteúdo mas na frente do fundo */
+    pointer-events: none; /* Impede que as ondas bloqueiem cliques */
+}
+
+.waves li {
+    position: absolute;
+    left: 50%;
+    width: 6000px;
+    height: 6000px;
+    margin-left: -3000px;
+    bottom: -5700px; 
+    background: rgba(176, 106, 179, 0.2); /* Cor roxa baseada no seu tema */
+    border-radius: 43%; /* Isso cria o formato irregular da onda */
+    animation: drift 15s infinite linear;
+    opacity: 1;
+    border: none;
+    z-index: 0;
+}
+
+.waves li:nth-child(2) {
+    background: rgba(69, 104, 220, 0.2);
+    bottom: -5720px;
+    border-radius: 40%;
+}
+
+.waves li:nth-child(3) {
+    background: rgba(255, 255, 255, 0.05);
+    animation: drift 28s infinite linear;
+    bottom: -5750px;
+    border-radius: 45%;
+}
+
+@keyframes drift {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* GRID DA EQUIPA */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5% 4rem 5%;
+}
+
+.team-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cartões por linha no Desktop */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    overflow: hidden; /* Mantém os cantos arredondados do grid geral */
+    background: transparent;
+}
+
+.team-card {
+    display: flex;
+    height: 350px; /* Altura fixa para manter os quadrados uniformes */
+    background: transparent;
+}
+
+.card-img, .card-info {
+    flex: 1; /* Metade da largura do cartão cada */
+    height: 100%;
+    position: relative;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Estilos do Bloco Glassmorphism (Informações) */
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05); /* Efeito vidro */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1;
+}
+
+/* Borda brilhante Figma */
+.card-info::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    mix-blend-mode: plus-lighter;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Sombra externa (Glow) suave */
+.card-info::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.3;
+    mix-blend-mode: plus-lighter;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .card-info::after {
+    opacity: 0.6; /* Intensifica o brilho no hover */
+}
+
+.card-info h2 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.card-info p {
+    font-size: 0.95rem;
+    color: #b5a8cc;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+/* Redes Sociais com estilo neon */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Borda arredondada fica mais elegante com o vidro */
+    color: #e0dced;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-icons a:hover {
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(176, 106, 179, 0.5);
+    transform: translateY(-3px);
+}
+
+.social-icons svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* --- LÓGICA DO CHECKERBOARD (XADREZ) --- */
+
+/* Linha 1 (Cards 1 e 2): Imagem na Esquerda, Texto na Direita */
+.team-card:nth-child(4n+1), 
+.team-card:nth-child(4n+2) {
+    flex-direction: row;
+}
+
+/* Linha 2 (Cards 3 e 4): Texto na Esquerda, Imagem na Direita */
+.team-card:nth-child(4n+3), 
+.team-card:nth-child(4n+4) {
+    flex-direction: row-reverse;
+}
+
+/* RESPONSIVIDADE PARA TABLETS E SMARTPHONES */
+@media (max-width: 900px) {
+    .team-container {
+        grid-template-columns: 1fr; /* 1 cartão por linha */
+    }
+    .team-card {
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .team-card {
+        height: auto;
+    }
+    
+    /* Todos os cards empilham verticalmente (Imagem em cima, Texto em baixo) */
+    .team-card, 
+    .team-card:nth-child(n) {
+        flex-direction: column;
+    }
+    
+    .card-img {
+        height: 300px; /* Altura fixa para a imagem no mobile */
+    }
+
+    .card-info {
+        padding: 3rem 2rem;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Restaurante, Pratos, Interativo, Italiano">
+        <meta name="description" content="Página inicial minimalista de restaurante com pratos interativos">
+        <meta name="author" content="Esther Dourado Batista">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Food Hunt</title>
+    
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/home.css">
+        <script src="js/script.js"></script>
+</head>
+<body>
+
+    <!-- Fundo Verde Arredondado -->
+    <div class="bg-shape"></div>
+
+    <header>
+        <div class="logo">Food Hunt</div>
+        <nav>
+            <a href="home.html">Início</a>
+            <a href="#">Cardápio</a>
+            <a href="#">Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="view-home" class="view active">
+            <article class="text-section">
+                <h1>Delicioso</h1>
+                <h2>Mate a sua Fome</h2>
+                <p>Descubra os melhores pratos preparados por chefs renomados. Ingredientes frescos, selecionados diariamente para proporcionar uma explosão de sabor inesquecível em cada garfada.</p>
+                <a href="pedido.html"><button class="btn-primary">Pedir Agora </button></a>    
+            </article>
+
+            <!-- Seção Interativa dos Pratos -->
+            <article class="interactive-section">
+                <div class="orbit-system">
+                    <div class="dashed-ring"></div>
+                    
+                    <!-- Pratos menores serão injetados aqui via JS -->
+                    <div class="plates-orbit-container" id="platesContainer"></div>
+                    
+                    <!-- Prato Principal -->
+                    <div class="main-plate-container">
+                        <img id="mainPlateImg" src="img/olayinka-babalola.jpg" alt="Prato Principal">
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
