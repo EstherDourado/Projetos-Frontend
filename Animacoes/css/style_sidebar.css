@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+
+:root {
+/* Tema Claro Padrão Original */
+--color-text-primary: #1F2936;
+--color-text-placeholder: #798EAE;
+--color-bg-primary: #f9fafb;
+--color-bg-secondary: #ECECFD;
+--color-bg-sidebar: #FFFFFF;
+--color-border-hr: #E2E8F0;
+--color-hover-primary: #695CFE;
+--color-hover-secondary: #e2e2fb;
+--color-shadow: rgba(0, 0, 0, 0.05);
+
+/* Variáveis de Hover e Animação Padrão */
+--shadow-hover-primary: none;
+--transform-hover-primary: none;
+}
+
+body.dark-theme {
+/* Tema Escuro utilizando as cores e efeitos do Cadastro.css */
+--color-text-primary: #e0dced;
+--color-text-placeholder: #b5a8cc;
+--color-bg-primary: linear-gradient(135deg, #3c3b7a, #1b013b); /* Gradiente do Figma */
+--color-bg-sidebar: rgba(16, 11, 22, 0.4); /* Fundo vidro */
+--color-bg-secondary: rgba(255, 255, 255, 0.05); /* Fundo vidro para inputs */
+--color-border-hr: rgba(176, 106, 179, 0.2); /* Bordas suaves */
+--color-hover-primary: linear-gradient(45deg, #B06AB3, #4568DC); /* Botões Padronizados Cadastro */
+--color-hover-secondary: rgba(255, 255, 255, 0.1);
+--color-shadow: rgba(0, 0, 0, 0.3);
+
+/* Efeitos dos botões transferidos para o menu-link */
+--shadow-hover-primary: 0 10px 20px rgba(176, 106, 179, 0.4);
+--transform-hover-primary: translateY(-3px) scale(1.02);
+}
+
+body {
+min-height: 100vh;
+background: var(--color-bg-primary);
+color: var(--color-text-primary);
+line-height: 1.6;
+transition: background 0.4s ease, color 0.4s ease;
+}
+
+.sidebar {
+position: sticky;
+top: 0;
+width: 270px;
+height: 100vh;
+display: flex;
+flex-shrink: 0;
+flex-direction: column;
+background: var(--color-bg-sidebar);
+border-right: 1px solid var(--color-border-hr);
+box-shadow: 0 3px 9px var(--color-shadow);
+transition: width 0.4s ease;
+/* Adicionando Glassmorphism do cadastro.css */
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+z-index: 1000;
+}
+
+.sidebar.collapsed {
+width: 90px;
+}
+
+.sidebar .sidebar-header {
+padding: 20px 18px;
+display: flex;
+position: relative;
+align-items: center;
+justify-content: space-between;
+border-bottom: 1px solid var(--color-border-hr);
+}
+
+.sidebar-header .logo {
+font-size: 1.5rem;
+transition: opacity 0.4s ease;
+}
+
+/* Estilizando Logo e Título no Modo Escuro (Efeito Cadastro) */
+body.dark-theme .logo, 
+body.dark-theme .page-title {
+background: linear-gradient(45deg, #B06AB3, #4568DC);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+font-weight: 700;
+}
+
+.sidebar.collapsed .logo {
+opacity: 0;
+pointer-events: none;
+}
+
+.site-nav .sidebar-toggle,
+.sidebar-header .sidebar-toggle {
+height: 40px;
+width: 40px;
+border: none;
+cursor: pointer;
+display: flex;
+position: absolute;
+right: 18px;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+color: var(--color-text-primary);
+background: var(--color-bg-secondary);
+transition: 0.4s ease;
+}
+
+body.dark-theme .sidebar-toggle {
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-nav .sidebar-toggle:hover,
+.sidebar-header .sidebar-toggle:hover {
+background: var(--color-hover-secondary);
+}
+
+.sidebar.collapsed .sidebar-header .sidebar-toggle {
+transform: translateX(-2px);
+height: 48px;
+width: 50px;
+}
+
+.sidebar-header .sidebar-toggle span {
+font-size: 1.75rem;
+transition: transform 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-toggle span {
+transform: rotate(180deg);
+}
+
+.sidebar .sidebar-content {
+flex: 1;
+padding: 20px 18px;
+overflow: hidden auto;
+scrollbar-width: thin;
+scrollbar-color: var(--color-text-placeholder) transparent;
+}
+
+.sidebar.collapsed .sidebar-content {
+scrollbar-width: none;
+}
+
+.sidebar-content .search-form {
+border-radius: 10px; /* Igual ao input do cadastro.css */
+min-height: 48px;
+margin: 5px 0 20px;
+align-items: center;
+display: flex;
+padding: 0 15px;
+white-space: nowrap;
+background: var(--color-bg-secondary);
+transition: all 0.3s ease;
+}
+
+body.dark-theme .search-form {
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar.collapsed .search-form:hover {
+cursor: pointer;
+}
+
+.sidebar-content .search-form:focus-within,
+.sidebar.collapsed .search-form:hover {
+background: var(--color-hover-secondary);
+}
+
+/* Efeito de foco no input do modo escuro igual ao cadastro.css */
+body.dark-theme .sidebar-content .search-form:focus-within,
+body.dark-theme .sidebar.collapsed .search-form:hover {
+border-color: #B06AB3;
+box-shadow: 0 0 10px rgba(176, 106, 179, 0.2);
+}
+
+.sidebar-content .search-form span {
+color: var(--color-text-placeholder);
+}
+
+.search-form input {
+background: none;
+outline: none;
+border: none;
+width: 100%;
+margin-left: 15px;
+font-size: 0.95rem;
+color: var(--color-text-primary);
+}
+
+.search-form input::placeholder {
+color: var(--color-text-placeholder);
+}
+
+.sidebar-content .menu-list {
+display: flex;
+gap: 4px;
+list-style: none;
+flex-direction: column;
+}
+
+.menu-list .menu-link {
+display: flex;
+gap: 12px;
+white-space: nowrap;
+border-radius: 10px;
+padding: 12px 15px;
+align-items: center;
+text-decoration: none;
+color: var(--color-text-primary);
+font-weight: 500;
+transition: all 0.3s ease;
+}
+
+.menu-link .menu-label {
+transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .menu-link .menu-label {
+opacity: 0;
+pointer-events: none;
+}
+
+/* Aplicando os estilos de botões (.btn) do cadastro.css no modo hover/ativo */
+.menu-list .menu-link:is(:hover, .active) {
+color: #fff;
+background: var(--color-hover-primary);
+box-shadow: var(--shadow-hover-primary);
+transform: var(--transform-hover-primary);
+}
+
+.sidebar .sidebar-footer {
+padding: 20px 18px;
+white-space: nowrap;
+border-top: 1px solid var(--color-border-hr);
+}
+
+.sidebar-footer .theme-toggle {
+width: 100%;
+min-height: 48px;
+border-radius: 8px;
+display: flex;
+align-items: center;
+cursor: pointer;
+border: none;
+padding: 0 15px;
+white-space: nowrap;
+color: var(--color-text-primary);
+background: var(--color-bg-secondary);
+transition: 0.3s ease;
+}
+
+body.dark-theme .sidebar-footer .theme-toggle {
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer .theme-toggle:hover {
+background: var(--color-hover-secondary);
+}
+
+.theme-toggle .theme-label {
+display: flex;
+gap: 10px;
+align-items: center;
+}
+
+.theme-toggle .theme-label .theme-text {
+font-size: 0.95rem;
+transition: opacity 0.4s 0.2s ease;
+font-weight: 500;
+}
+
+.sidebar.collapsed .theme-toggle :where(.theme-text, .theme-toggle-track) {
+opacity: 0;
+width: 0;
+transition: all 0.2s ease;
+}
+
+.theme-toggle .theme-toggle-track {
+height: 24px;
+width: 48px;
+border-radius: 999px;
+margin-left: auto;
+background: #c3d1ec;
+position: relative;
+transition: opacity 0.4s 0.2s ease, background-color 0.3s ease;
+}
+
+body.dark-theme .theme-toggle-track {
+background: linear-gradient(45deg, #B06AB3, #4568DC); /* Track no tema escuro usando o gradiente */
+}
+
+.theme-toggle-track .theme-toggle-indicator {
+position: absolute;
+top: 3px;
+left: 3px;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+}
+
+body.dark-theme .theme-toggle-indicator {
+transform: translateX(24px);
+}
+
+.site-nav {
+top: 0;
+display: none;
+padding: 15px 20px;
+position: sticky;
+background: var(--color-bg-sidebar); /* Adapta ao vidro/cor */
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border-bottom: 1px solid var(--color-border-hr);
+z-index: 1000;
+}
+
+.site-nav .sidebar-toggle {
+position: unset;
+}
+
+.container {
+display: flex;
+flex-direction: row;
+}
+
+.container .main-content {
+flex: 1;
+padding: 30px;
+color: var(--color-text-primary);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.main-content .page-title {
+font-size: 2rem;
+margin-bottom: 20px;
+text-align: center;
+}
+
+.main-content .card {
+border-radius: 8px;
+padding: 20px;
+background-color: var(--color-bg-sidebar);
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+max-width: 600px;
+text-align: center;
+}
+
+/* CARD DE CADASTRO COM EFEITO FIGMA (Plus Lighter) ATIVADO NO MODO ESCURO */
+body.dark-theme .main-content .card {
+position: relative;
+width: 100%;
+background: rgba(255, 255, 255, 0.05); /* Fundo vidro */
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-radius: 20px;
+padding: 2.5rem 3rem;
+z-index: 1;
+box-shadow: none;
+border: none;
+color: #b5a8cc; /* Cor dos parágrafos do cadastro.css */
+}
+
+/* Borda brilhante com mix-blend-mode pedido */
+body.dark-theme .main-content .card::before {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 20px;
+padding: 2px; /* Espessura da borda */
+background: linear-gradient(45deg, #B06AB3, #4568DC);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+mix-blend-mode: plus-lighter; /* Efeito do Figma */
+pointer-events: none;
+}
+
+/* Sombra externa (Glow) suave */
+body.dark-theme .main-content .card::after {
+content: '';
+position: absolute;
+inset: -2px;
+background: linear-gradient(45deg, #B06AB3, #4568DC);
+border-radius: 22px;
+z-index: -1;
+filter: blur(15px);
+opacity: 0.3;
+mix-blend-mode: plus-lighter;
+}
+
+/* Responsive media query code for small screens */
+@media (max-width: 768px) {
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.4s ease;
+}
+
+body:has(.sidebar:not(.collapsed))::before {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body:has(.sidebar:not(.collapsed)) {
+    overflow: hidden;
+}
+
+.site-nav {
+    display: block;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 20;
+    width: 270px;
+    transition: left 0.4s ease;
+}
+
+.sidebar.collapsed {
+    left: -270px;
+    width: 270px;
+}
+
+.container .main-content {
+    padding: 30px 20px;
+}
+
+body.dark-theme .main-content .card {
+    padding: 2rem 1.5rem;
+}
+}
