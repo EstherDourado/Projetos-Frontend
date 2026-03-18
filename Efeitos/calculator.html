@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Isso é um exemplo de calculadora com efeito neumórfico.">
+        <meta name="keywords" content="calculadora, neumorfismo, CSS, jQuery">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE-7">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link rel="stylesheet" href="css/style_calculator.css">
+
+        <title>Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="clear" id="clear">C</button>
+            <button id="backspace">⌫</button>
+            <button class="operator" data-value="/">÷</button>
+            <button class="operator" data-value="*">×</button>
+
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button class="operator" data-value="-">−</button>
+
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button class="operator" data-value="+">+</button>
+
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button data-value=".">.</button>
+
+            <button class="equal" id="equals">=</button>
+            <button data-value="0" style="grid-column: span 2;">0</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById("display");
+        const buttons = document.querySelectorAll("button");
+        let currentInput = "";
+
+        function updateDisplay(){
+            display.textContent = currentInput || "0";
+        }
+
+        function isOperator(char){
+            return ["+", "-", "*", "/"].includes(char);
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const val = button.getAttribute("data-value");
+                const id = button.id;
+
+                if (id == "clear"){
+                    currentInput = "";
+                    updateDisplay();
+                    return;
+                }
+
+                if (id == "backspace"){
+                    currentInput = currentInput.slice(0, -1);
+                    updateDisplay();
+                    return;
+                }
+
+                if (id == "equals"){
+                    if (!currentInput) return;
+
+                    if (isOperator(currentInput.slice(-1))){
+                        currentInput = currentInput.slice(0, -1);
+                    }
+
+                    try{
+                        const result = Function(`return ${currentInput}`)();
+                        currentInput = result.toString();
+                    } catch {
+                        currentInput = "Error";
+                    }
+                    updateDisplay();
+                    return;
+                }
+
+                if (isOperator(val)){
+                    if (!currentInput) return; 
+                    if (isOperator(currentInput.slice(-1))){
+                        currentInput.slice(0, -1);
+                    }
+                }
+
+                if (val === "."){
+                    const parts = currentInput.split(/[\+\-\*\/]/);
+                    const lastNumber = parts[parts.length - 1];
+                    if (lastNumber.includes(".")) return;
+                }
+
+                currentInput += val;
+                updateDisplay();
+            });
+        });
+    </script>
+</body>
+</html>
