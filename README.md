@@ -1,8 +1,3 @@
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
 ## 💻 Portfólio de Projetos HTML & CSS
 
 Este repositório reúne uma coleção de projetos desenvolvidos com HTML e CSS, com foco em prática, evolução contínua e aprimoramento das habilidades em desenvolvimento front-end.
