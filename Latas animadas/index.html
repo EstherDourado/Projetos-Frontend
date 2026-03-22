@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Latas animadas, sucos, efeito 3D">
+        <meta name="description" content="Latinhas animadas com CSS e JavaScript">
+        <meta name="author" content="Esther Dourado Batista">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel="stylesheet" href="css/style.css">
+        <title>Latinhas Animadas</title>
+</head>
+<body>
+    <main>
+
+        <div class="item active" style="--background: #EA3D41">
+            <div class="title">Morango</div>
+            <img src="img/Morango-refrigerante-foregroundBlur.png" class="fruit">
+            <img src="img/Morango-refrigerante.png" class="refri">
+        </div>
+
+        <div class="item" style="--background: #E7A043">
+            <div class="title">Laranja</div>
+            <img src="img/Laranja-refrigerante-foregroundBlur.png" class="fruit">
+            <img src="img/Laranja-refrigerante.png" class="refri">
+        </div>
+
+        <div class="item hidden" style="--background: #2D5643">
+            <div class="title">Abacate</div>
+            <img src="img/Abacate-refrigerante-foregroundBlur.png" class="fruit">
+            <img src="img/Abacate-refrigerante.png" class="refri">
+        </div>
+
+        <div class="arrow">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+    </main>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* Estilos Globais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #080808; /* Fundo bem escuro */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Seção Principal com Imagem de Fundo */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../img/cinema_fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Gradiente para escurecer o fundo e dar destaque ao texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(8, 8, 8, 0.95) 15%, rgba(8, 8, 8, 0.6) 50%, rgba(8, 8, 8, 0.95) 100%);
+}
+
+/* Navegação */
+.navbar-custom {
+    padding: 20px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-brand {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+.navbar-brand span {
+    color: #e50914; /* Vermelho estilo Netflix/Ação */
+}
+
+.account-btn {
+    background-color: transparent;
+    border: 2px solid #e50914;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.account-btn:hover {
+    background-color: #e50914;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
+}
+
+/* Detalhes do Filme Principal */
+.movie-details {
+    position: relative;
+    z-index: 10;
+    padding-top: 80px;
+}
+
+.movie-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+.movie-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #d1d1d1;
+    margin-bottom: 30px;
+    max-width: 90%;
+    line-height: 1.6;
+}
+
+/* Seção do Elenco */
+.cast-section {
+    margin-bottom: 40px;
+}
+
+.cast-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #e50914;
+}
+
+.cast-list {
+    display: flex;
+    gap: 15px;
+}
+
+.cast-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.cast-img:hover {
+    transform: scale(1.15);
+    border-color: #e50914;
+}
+
+/* Botões de Ação */
+.action-btns .btn-watch {
+    background-color: #e50914;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.action-btns .btn-watch:hover {
+    background-color: #b8070f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(229, 9, 20, 0.4);
+}
+
+.action-btns .btn-download {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btns .btn-download:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Pôster do Filme Principal (Direita) */
+.main-poster-wrapper {
+    position: relative;
+    z-index: 10;
+    perspective: 1000px;
+}
+
+.main-poster {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(229, 9, 20, 0.3);
+    transition: transform 0.5s ease;
+}
+
+.main-poster:hover {
+    transform: rotateY(-5deg) scale(1.02);
+}
+
+/* Seção de Filmes Populares */
+.popular-movies {
+    position: relative;
+    z-index: 10;
+    padding: 50px 0;
+    background: linear-gradient(to top, #080808 70%, transparent);
+    margin-top: -100px; /* Sobrepõe levemente a seção principal */
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    border-left: 4px solid #e50914;
+    padding-left: 10px;
+}
+
+.movie-card {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(229, 9, 20, 0.3);
+}
+
+.movie-card:hover img {
+    transform: scale(1.05);
+}
+
+.movie-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-card-overlay {
+    transform: translateY(0);
+}
+
+.movie-card-title {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Responsividade Extra */
+@media (max-width: 768px) {
+    .movie-title { font-size: 2.5rem; }
+    .movie-details { padding-top: 30px; text-align: center; }
+    .movie-desc { margin: 0 auto 30px auto; }
+    .cast-list { justify-content: center; }
+    .action-btns { justify-content: center; display: flex; flex-wrap: wrap; gap: 15px; }
+    .action-btns .btn-watch { margin-right: 0; }
+    .main-poster-wrapper { margin-top: 40px; text-align: center; }
+    .popular-movies { margin-top: 20px; background: #080808; }
+}

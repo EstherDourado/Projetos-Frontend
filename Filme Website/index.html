@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Cadastro, Venda, Cartão Virtual">
+        <meta name="description" content="Seção de cadastro de endereço e informações do cartão para pagamento">
+        <meta name="author" content="Esther Dourado Batista">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>AçãoCine - Filmes de Ação</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+
+            <div class="container">
+                <nav class="navbar-custom d-flex justify-content-between align-items-center">
+                    <a href="#" class="navbar-brand">Ação<span>Cine</span></a>
+                    <a href="#" class="account-btn"><i class="fas fa-user me-2"></i> Conta</a>
+                </nav>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="container movie-details">
+                <div class="row align-items-center">
+                    <!-- Coluna Esquerda: Informações do Filme -->
+                    <div class="col-md-6 col-lg-7">
+                        <h1 class="movie-title">O Preço do Amanhã<br><span style="color: #e50914; font-size: 1.5rem;">VIVA PARA SEMPRE OU MORRA TENTANDO</span></h1>
+                        <p class="movie-desc">
+                            Uma distopia onde o tempo é a moeda de troca; as pessoas param de envelhecer aos 25 anos e precisam trabalhar para acumular minutos de vida. 
+                            Will Salas (Justin Timberlake) vive na pobreza, mas, após herdar anos de um homem rico, é falsamente acusado de assassinato e foge com a 
+                            herdeira Sylvia Weis (Amanda Seyfried), juntos tentando destruir o sistema desigual.
+                        </p>
+
+                        <div class="cast-section">
+                            <div class="cast-title">Elenco Principal:</div>
+                            <div class="cast-list">
+                                <img src="img/amanda_seyfried.jpg"
+                                    alt="Ator 1" class="cast-img" title="Amanda Seyfried">
+                                <img src="img/justin_timberlake.jpg"
+                                    alt="Ator 2" class="cast-img" title="Justin Timberlake">
+                                <img src="img/cillian murphy.jpg"
+                                    alt="Ator 3" class="cast-img" title="Cillian Murphy">
+                                <img src="img/matthew_bomer.jpg"
+                                    alt="Atriz 1" class="cast-img" title="Matthew Bomer">
+                            </div>
+                        </div>
+
+                        <div class="action-btns">
+                            <a href="#" class="btn-watch"><i class="fas fa-play"></i> Assistir Agora</a>
+                            <a href="#" class="btn-download"><i class="fas fa-arrow-down"></i> Baixar</a>
+                        </div>
+                    </div>
+
+                    <!-- Coluna Direita: Pôster -->
+                    <div class="col-md-6 col-lg-5 text-center">
+                        <div class="main-poster-wrapper">
+                            <img src="img/preco_do_amanha.jpg" alt="Pôster do Filme" class="main-poster">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Filmes Populares (Parte Inferior) -->
+        <section class="popular-movies">
+            <div class="container">
+                <h3 class="section-title">Filmes Populares</h3>
+                <div class="row">
+                    
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <div class="movie-card">
+                            <img src="img/guerra_do_amanha.jpg" alt="Filme 1">
+                            <div class="movie-card-overlay">
+                                <p class="movie-card-title">A Guerra do Amanhã</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <div class="movie-card">
+                            <img src="img/jason_bourne.jpg" alt="Filme 2">
+                            <div class="movie-card-overlay">
+                                <p class="movie-card-title">Jason Bourne</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <div class="movie-card">
+                            <img src="img/predador_poster.jpg" alt="Filme 3">
+                            <div class="movie-card-overlay">
+                                <p class="movie-card-title">Predador</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <div class="movie-card">
+                            <img src="img/viva_morra_repita.jpg" alt="Filme 4">
+                            <div class="movie-card-overlay">
+                                <p class="movie-card-title">Viva Morra Repita</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <div class="movie-card">
+                            <img src="img/missao_impossivel.jpg" alt="Filme 5">
+                            <div class="movie-card-overlay">
+                                <p class="movie-card-title">Missão Impossivel</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <div class="movie-card">
+                            <img src="img/maverick.jpg" alt="Filme 6">
+                            <div class="movie-card-overlay">
+                                <p class="movie-card-title">Top Gun Maverick</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap 5 JS Bundle via CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+</html>
