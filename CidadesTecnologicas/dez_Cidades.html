@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="As cidades mais Tecnológicas do estado de São Paulo">
+    <title>Polos Tecnológicos - São Paulo</title>
+    
+    <!-- Tailwind CSS para Estilização Rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de Cores Customizadas no Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tech: {
+                            dark: '#0a0f1c',
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            purple: '#8e2de2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Importando fontes do Google */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Fira+Code:wght@400;700&display=swap');
+
+        body {
+            background-color: #0a0f1c;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Fundo 3D Canvas */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* Efeito de Vidro (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* Elementos que saltam no 3D Tilt */
+        .glass-card > * {
+            transform: translateZ(30px);
+        }
+
+        /* Animações de Entrada (Scroll) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilização do Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0f1c; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #00f2fe, #4facfe); 
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tech-cyan selection:text-black">
+
+    <!-- Container do Three.js (Fundo 3D) -->
+    <div id="canvas-container"></div>
+
+    <!-- Navegação Minimalista -->
+    <nav class="fixed w-full top-0 z-50 glass-card border-x-0 border-t-0 border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <div class="font-mono font-bold text-xl tracking-tighter flex items-center gap-2 text-tech-cyan">
+            <span class="w-3 h-3 rounded-full bg-tech-cyan animate-pulse"></span>
+            SP_TECH.HUB
+        </div>
+        <ul class="flex gap-6 text-sm font-medium tracking-wide text-gray-300">
+            <li class="hover:text-white cursor-pointer transition-colors">INÍCIO</li>
+            <li class="hover:text-white cursor-pointer transition-colors">RANKING</li>
+        </ul>
+    </nav>
+
+    <!-- Cabeçalho (Hero Section) -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative mt-10">
+        <div class="reveal max-w-4xl mx-auto">
+            <h2 class="text-tech-cyan font-mono text-sm md:text-base tracking-widest uppercase mb-4">Mapeamento de Inovação</h2>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-tech-cyan to-tech-blue drop-shadow-[0_0_15px_rgba(0,242,254,0.3)]">
+                O Futuro Acontece Aqui.
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-10">
+                São Paulo lidera o ecossistema tecnológico da América Latina. Conheça as cidades que formam a malha de inovação, impulsionando startups, inteligência artificial e biotecnologia.
+            </p>
+            <a href="#ranking" class="inline-block relative group">
+                <div class="absolute inset-0 bg-gradient-to-r from-tech-cyan to-tech-blue rounded-full blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
+                <button class="relative bg-tech-dark border border-tech-cyan/50 text-white font-mono px-8 py-4 rounded-full flex items-center gap-3 transition-transform hover:scale-105">
+                    INICIAR EXPLORAÇÃO
+                    <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <!-- Seção de Cidades -->
+    <main id="ranking" class="max-w-7xl mx-auto px-4 py-20 flex flex-col gap-32 relative z-10">
+
+        <!-- 1. São Paulo -->
+        <article class="reveal flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="glass-card rounded-3xl p-8 tilt-element relative overflow-hidden group">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-tech-blue/20 blur-3xl rounded-full pointer-events-none"></div>
+                    <span class="text-6xl font-black text-white/5 absolute -left-4 -top-8 pointer-events-none">01</span>
+                    <h2 class="text-3xl font-bold mb-2 flex items-center gap-3">
+                        São Paulo
+                        <span class="px-3 py-1 bg-tech-cyan/20 text-tech-cyan text-xs rounded-full font-mono border border-tech-cyan/30">LÍDER</span>
+                    </h2>
+                    <h3 class="text-tech-cyan mb-6 font-mono text-sm">> O Núcleo do Ecossistema</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        A capital é o epicentro tecnológico, concentrando <strong>1.670+ startups</strong>. Com infraestrutura consolidada de aceleradoras e centros de P&D, lidera em Healthtechs, Fintechs e IA. Única cidade da América Latina no Global Startup Ecosystem Report.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">1.6k+</span><span class="text-xs text-gray-500 uppercase font-mono">Startups</span></div>
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">1º</span><span class="text-xs text-gray-500 uppercase font-mono">Ranking BR</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 tilt-element">
+                <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,242,254,0.15)] group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="cidade_saopaulo.jpg" onerror="this.src='https://images.unsplash.com/photo-1543083477-4f785aeafaa9?q=80&w=1000&auto=format&fit=crop'" alt="São Paulo Ponte Estaiada" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700">
+                    <p class="absolute bottom-4 left-6 z-20 font-mono text-sm text-gray-300">/sys/sp_capital</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. Campinas -->
+        <article class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="glass-card rounded-3xl p-8 tilt-element relative overflow-hidden group">
+                    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-tech-purple/20 blur-3xl rounded-full pointer-events-none"></div>
+                    <span class="text-6xl font-black text-white/5 absolute -right-4 -top-8 pointer-events-none">02</span>
+                    <h2 class="text-3xl font-bold mb-2 flex items-center gap-3">
+                        Campinas
+                        <span class="px-3 py-1 bg-tech-purple/20 text-tech-purple text-xs rounded-full font-mono border border-tech-purple/30">POLO ACADÊMICO</span>
+                    </h2>
+                    <h3 class="text-tech-purple mb-6 font-mono text-sm">> Inovação em Código Aberto</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        O segundo maior centro tecnológico do estado. Impulsionada pela <strong>Unicamp</strong>, destaca-se em pesquisa profunda, software e biotecnologia. Suas incubadoras traduzem ciência aplicada em soluções de mercado escaláveis globais.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">174</span><span class="text-xs text-gray-500 uppercase font-mono">Startups</span></div>
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">P&D</span><span class="text-xs text-gray-500 uppercase font-mono">Destaque</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 tilt-element">
+                <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(142,45,226,0.15)] group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="cidade_campinas.jpg" onerror="this.src='https://images.unsplash.com/photo-1590496884699-231181f08bd4?q=80&w=1000&auto=format&fit=crop'" alt="Campinas" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700">
+                    <p class="absolute bottom-4 right-6 z-20 font-mono text-sm text-gray-300">/sys/campinas</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. Ribeirão Preto -->
+        <article class="reveal flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="glass-card rounded-3xl p-8 tilt-element relative overflow-hidden group">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-green-500/10 blur-3xl rounded-full pointer-events-none"></div>
+                    <span class="text-6xl font-black text-white/5 absolute -left-4 -top-8 pointer-events-none">03</span>
+                    <h2 class="text-3xl font-bold mb-2 flex items-center gap-3">
+                        Ribeirão Preto
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full font-mono border border-green-500/30">AGRITECH</span>
+                    </h2>
+                    <h3 class="text-green-400 mb-6 font-mono text-sm">> Tecnologia Encontra a Terra</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Polo emergente focado na intersecção entre o agronegócio e o digital. Referência nacional em <strong>Agrotech e Healthtech</strong>, criando spin-offs universitárias voltadas para a automação agrícola e sistemas logísticos inteligentes.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">~150</span><span class="text-xs text-gray-500 uppercase font-mono">Startups</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 tilt-element">
+                <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(34,197,94,0.15)] group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="cidade_riberaopreto.jpg" onerror="this.src='https://images.unsplash.com/photo-1596703901614-2792dafbcd48?q=80&w=1000&auto=format&fit=crop'" alt="Ribeirão Preto" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700">
+                    <p class="absolute bottom-4 left-6 z-20 font-mono text-sm text-gray-300">/sys/rp_agri</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. São José dos Campos -->
+        <article class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="glass-card rounded-3xl p-8 tilt-element relative overflow-hidden group">
+                    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-orange-500/10 blur-3xl rounded-full pointer-events-none"></div>
+                    <span class="text-6xl font-black text-white/5 absolute -right-4 -top-8 pointer-events-none">04</span>
+                    <h2 class="text-3xl font-bold mb-2 flex items-center gap-3">
+                        São José dos Campos
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs rounded-full font-mono border border-orange-500/30">AEROESPACIAL</span>
+                    </h2>
+                    <h3 class="text-orange-400 mb-6 font-mono text-sm">> Engenharia de Fronteira</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Casa do ITA e da Embraer, é a meca da <strong>Deep Tech</strong> no Brasil. Um ecossistema que foca em robótica avançada, novos materiais e softwares de alta complexidade. A inovação aqui frequentemente atinge proporções espaciais.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">126</span><span class="text-xs text-gray-500 uppercase font-mono">Startups</span></div>
+                        <div class="flex flex-col"><span class="text-2xl font-bold text-white">Nexus</span><span class="text-xs text-gray-500 uppercase font-mono">Parque Tec.</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 tilt-element">
+                <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(249,115,22,0.15)] group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="cidade_saojosecampos.jpg" onerror="this.src='https://images.unsplash.com/photo-1581454044961-73934d40bf01?q=80&w=1000&auto=format&fit=crop'" alt="São José dos Campos" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700">
+                    <p class="absolute bottom-4 right-6 z-20 font-mono text-sm text-gray-300">/sys/sjc_aero</p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="glass-card mt-20 border-x-0 border-b-0 py-8 text-center border-t border-white/10">
+        <p class="text-gray-500 font-mono text-sm">© <script>document.write(new Date().getFullYear())</script> SP_TECH.HUB // Processado no Estado de São Paulo</p>
+    </footer>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Scripts de Lógica Visual e 3D -->
+    <script>
+        // ----------------------------------------------------
+        // 1. ANIMAÇÕES DE SCROLL (Intersection Observer)
+        // ----------------------------------------------------
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+
+        // ----------------------------------------------------
+        // 2. EFEITO 3D NOS CARTÕES (Vanilla Tilt Customizado)
+        // ----------------------------------------------------
+        const tiltElements = document.querySelectorAll('.tilt-element');
+
+        tiltElements.forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Calculando a rotação (suavizada multiplicando por valores pequenos)
+                const rotateX = ((y - centerY) / centerY) * -8; 
+                const rotateY = ((x - centerX) / centerX) * 8;
+
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                element.style.transition = 'transform 0.5s ease-out';
+            });
+
+            element.addEventListener('mouseenter', () => {
+                element.style.transition = 'transform 0.1s ease-out';
+            });
+        });
+
+        // ----------------------------------------------------
+        // 3. BACKGROUND 3D COM THREE.JS (Malha de Conexões)
+        // ----------------------------------------------------
+        const canvasContainer = document.getElementById('canvas-container');
+        
+        // Setup da Cena
+        const scene = new THREE.Scene();
+        // Adicionando um leve fog para esconder partículas distantes
+        scene.fog = new THREE.FogExp2(0x0a0f1c, 0.0015);
+
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+        camera.position.z = 400;
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        canvasContainer.appendChild(renderer.domElement);
+
+        // Criando Partículas (Nós tecnológicos)
+        const particleCount = 250;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const velocities = [];
+
+        const maxDistance = 600;
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * maxDistance * 2;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * maxDistance * 2;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * maxDistance * 2;
+            
+            velocities.push({
+                x: (Math.random() - 0.5) * 0.5,
+                y: (Math.random() - 0.5) * 0.5,
+                z: (Math.random() - 0.5) * 0.5
+            });
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        // Material dos pontos
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0x00f2fe,
+            size: 3,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particles = new THREE.Points(geometry, particleMaterial);
+        scene.add(particles);
+
+        // Linhas de conexão
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x4facfe,
+            transparent: true,
+            opacity: 0.15
+        });
+
+        // Interação com o Mouse
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - windowHalfX);
+            mouseY = (event.clientY - windowHalfY);
+        });
+
+        // Loop de Animação
+        function animate() {
+            requestAnimationFrame(animate);
+
+            targetX = mouseX * 0.05;
+            targetY = mouseY * 0.05;
+
+            // Rotação suave baseada no mouse
+            particles.rotation.y += 0.001;
+            particles.rotation.x += 0.0005;
+            
+            scene.rotation.x += 0.05 * (targetY * 0.01 - scene.rotation.x);
+            scene.rotation.y += 0.05 * (targetX * 0.01 - scene.rotation.y);
+
+            // Animando movimento individual das partículas
+            const posAttribute = geometry.attributes.position;
+            for(let i = 0; i < particleCount; i++) {
+                let x = posAttribute.getX(i);
+                let y = posAttribute.getY(i);
+                let z = posAttribute.getZ(i);
+
+                x += velocities[i].x;
+                y += velocities[i].y;
+                z += velocities[i].z;
+
+                // Limites de rebatimento
+                if(x > maxDistance || x < -maxDistance) velocities[i].x *= -1;
+                if(y > maxDistance || y < -maxDistance) velocities[i].y *= -1;
+                if(z > maxDistance || z < -maxDistance) velocities[i].z *= -1;
+
+                posAttribute.setXYZ(i, x, y, z);
+            }
+            posAttribute.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+
+        // Responsividade
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Inicia a renderização
+        animate();
+    </script>
+</body>
+</html>
