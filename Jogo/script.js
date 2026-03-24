@@ -7,15 +7,15 @@ const optionImages = document.querySelectorAll(".option_image");
 
 const botImages = ["images/rock.png", "images/paper.png", "images/scissors.png"];
 const outcomes = {
-  RR: "Draw",
+  RR: "Empate",
   RP: "BOT",
-  RS: "YOU",
-  PP: "Draw",
-  PR: "YOU",
+  RS: "VOCÊ",
+  PP: "Empate",
+  PR: "VOCÊ",
   PS: "BOT",
-  SS: "Draw",
+  SS: "Empate",
   SR: "BOT",
-  SP: "YOU"
+  SP: "VOCÊ"
 };
 
 function handleOptionClick(event) {
@@ -23,7 +23,7 @@ function handleOptionClick(event) {
   const clickedIndex = Array.from(optionImages).indexOf(clickedImage);
 
   userResult.src = botResult.src = "images/rock.png";
-  result.textContent = "Wait...";
+  result.textContent = "Esperando...";
 
   optionImages.forEach((image, index) => {
     image.classList.toggle("active", index === clickedIndex);
@@ -46,7 +46,7 @@ function handleOptionClick(event) {
     const outcomeKey = userValue + botValue;
     const outcome = outcomes[outcomeKey] || "Unknown";
 
-    result.textContent = userValue === botValue ? "Match Draw" : `${outcome} WON!`;
+    result.textContent = userValue === botValue ? "Empate" : `${outcome} WON!`;
   }, 2500);
 }
 
