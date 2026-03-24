@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site de Imagens dinamicas com paisegens da natureza">
+        <meta name="keywords" content="Imagens, Slide, Natureza">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE-7">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Website Dinamico</title>
+    </head>
+    <body>
+        <div id="hero">
+            <div class="navbar">
+                <img src="img/logo.png" class="logo">
+                <div class="user">
+                    <button type="button">Explorar</button>
+                    <img src="img/user.png">
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="info">
+                    <h1>Descubra</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Molestias nesciunt ab ipsum dignissimos, 
+                        asperiores molestiae perspiciatis temporibus rem quasi 
+                        excepturi inventore incidunt necessitatibus 
+                        sit officia harum culpa fuga nostrum quod.
+                    </p>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+
+            <div class="slider">
+                <img src="img/left-arrow.png" id="prev">
+                <div class="preview">
+                    <img src="img/small1.png" class="active thumbnail">
+                    <img src="img/small2.png" class="thumbnail">
+                    <img src="img/small3.png" class="thumbnail">
+                    <img src="img/small4.png" class="thumbnail">
+                    <img src="img/small5.png" class="thumbnail">
+                </div>
+                <img src="img/right-arrow.png" id="next">
+            </div>
+        </div>
+        <script>
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            var thumbnail = document.getElementsByClassName('thumbnail');
+            var hero = document.getElementById('hero');
+
+            var backgroundImg = new Array(
+                "img/small1.png",
+                "img/small2.png",
+                "img/small3.png",
+                "img/small4.png",
+                "img/small5.png",
+            );
+
+            let i = 0;
+            next.onclick = function(){
+                if(i < 4){
+                    hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+                    thumbnail[i+1].classList.add("active");
+                    thumbnail[i].classList.remove("active");
+                    i++;
+                }
+            }
+            prev.onclick = function(){
+                if(i > 0){
+                    hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+                    thumbnail[i-1].classList.add("active");
+                    thumbnail[i].classList.remove("active");
+                    i--;
+                }
+            }
+    
+        </script>
+    </body>
+</html>

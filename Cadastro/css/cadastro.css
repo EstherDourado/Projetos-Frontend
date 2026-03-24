@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Fundo atualizado para um gradiente mais claro, inspirado na imagem do Figma */
+    background: linear-gradient(135deg, #3c3b7a, #1b013b);
+    color: #e0dced;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(16, 11, 22, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(176, 106, 179, 0.2);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+p, pre {
+    white-space: pre-line;
+    color: #b5a8cc;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Botões padronizados */
+.btn {
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(176, 106, 179, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 5%;
+}
+
+/* CARD DE CADASTRO COM EFEITO FIGMA (Plus Lighter) */
+.login-card-front {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo vidro */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    z-index: 1;
+}
+
+/* Borda brilhante com mix-blend-mode pedido */
+.login-card-front::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px; /* Espessura da borda */
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    mix-blend-mode: plus-lighter; /* Efeito do Figma */
+    pointer-events: none;
+}
+
+/* Sombra externa (Glow) suave */
+.login-card-front::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #B06AB3, #4568DC);
+    border-radius: 22px;
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.3;
+    mix-blend-mode: plus-lighter;
+}
+
+/* Formulário e Grid para os novos campos */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 0.85rem;
+    color: #b5a8cc;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #B06AB3;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(176, 106, 179, 0.2);
+}
+
+/* Estilizando o ícone do calendário no input date */
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+select option {
+    background: #2b1f5c;
+    color: #fff;
+}
+
+/* Estilo das Checkboxes */
+.checkbox-group-title {
+    font-size: 0.85rem;
+    color: #b5a8cc;
+    margin-bottom: 0.5rem;
+    grid-column: span 2;
+}
+
+.checkboxes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    grid-column: span 2;
+    margin-bottom: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #e0dced;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: #B06AB3;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 1rem;
+    grid-column: span 2;
+    margin-top: 1rem;
+}
+
+.botoes-acao button {
+    flex: 1;
+}
+
+.separador {
+    grid-column: span 2;
+    text-align: center;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.separador::before,
+.separador::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.separador::before { left: 0; }
+.separador::after { right: 0; }
+
+.links-extra {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.links-extra a {
+    color: #4568DC;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.links-extra a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    list-style: none;
+    grid-column: span 2;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
+    filter: invert(1); /* Deixa os icones brancos caso sejam pretos */
+}
+
+.social-icons img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Responsividade para telemóvel */
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+    .full-width, .input-group, .checkboxes, .botoes-acao {
+        grid-column: span 1;
+    }
+    .botoes-acao {
+        flex-direction: column;
+    }
+    .login-card-front {
+        padding: 2rem 1.5rem;
+    }
+}

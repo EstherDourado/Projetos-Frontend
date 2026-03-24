@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Blog, Esther, Portifolio">
+    <meta name="description" content="As cidades mais Tecnologicas do estado de São Paulo">
+    <meta name="author" content="Esther Dourado Batista">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>CondigThê</title>
+</head>
+<body>
+    <header>
+        <h1>CondigThê</h1>
+        <a href="landing_page.html#contato" class="btn">Fale Comigo</a>
+    </header>
+    
+    <main>
+        <section class="login-card-front">
+            <h2>Criar Conta</h2>
+            
+            <form action="cadastro.php" method="post">
+                <div class="input-group full-width">
+                    <label for="nome">Nome completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Esther Batista" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="outro">Outro / Prefiro não dizer</option>
+                    </select>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+                </div>
+
+                <div class="checkbox-group-title">Selecione o seu perfil (pode escolher mais de um):</div>
+                <div class="checkboxes">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="perfil[]" value="estudante"> Estudante
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="perfil[]" value="desenvolvedor"> Desenvolvedor(a)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="perfil[]" value="designer"> Designer
+                    </label>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="button" class="btn btn-outline" onclick="window.history.back()">Cancelar</button>
+                </div>
+                
+                <div class="separador"><pre>ou</pre></div>
+
+                <div class="links-extra">
+                    <pre>Já tem uma conta? <a href="login.html">Faça login</a></pre>
+                </div>
+
+                <ul class="social-icons">
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" title="Entrar com LinkedIn"></li>
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" title="Entrar com GitHub"></li>
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google" title="Entrar com Google"></li>
+                </ul>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

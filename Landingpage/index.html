@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Blog, Esther, Portifolio">
+    <meta name="description" content="Meu protifolio">
+    <meta name="author" content="Esther Dourado Batista">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <title>CondigThê</title>
+</head>
+<body>
+     <!-- CABEÇALHO -->
+    <header>
+        <h1>CondigThê</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#formacao">Trajetória</a></li>
+                <li><a href="#portifolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="#contato" class="btn-header">Fale Comigo</a>
+    </header>
+    
+    <main>
+        <!-- SEÇÃO: HOME -->
+        <section id="home">
+            <div class="home-content">
+                <p class="greeting">// Olá, mundo! 👋</p>
+                <h1 class="hero-title">Eu sou <span class="highlight">Esther</span>,<br>desenvolvedora<br><span class="highlight-alt">FullStack</span> 😁</h1>
+                <p class="hero-desc">Desenvolvedora recém-graduada em Ciência da Computação, com experiência sólida em desenvolvimento de sistemas voltados para soluções reais.</p>
+                <div class="social-icon">
+                    <a href="https://linkedin.com/in/esther-batista" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/EstherDourado" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/estherdbatista/"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#portifolio" class="btn-primary">Ver Portfólio</a>
+                    <a href="#formacao" class="btn-secondary">Minha Trajetória</a>
+                </div>
+            </div>
+            <div class="home-image_profile">
+                <!-- Usando uma imagem placeholder da web, caso img/esther.jpg não exista localmente, o layout se mantém -->
+                <img src="img/esther.jpeg" alt="Foto de Esther Batista">
+            </div>
+        </section>
+
+        <!-- SEÇÃO: RESUMO -->
+        <section class="resumo glass">
+            <h3>Resumo Profissional</h3>
+            <br>
+            <p>Desenvolvedora FullStack com forte perfil autodidata. Possuo base sólida em desenvolvimento de sistemas e busco constantemente evoluir através de estudos práticos e projetos próprios. Aplico minhas habilidades em organização e gestão de tempo para entregar software de alta qualidade e busco oportunidades para atuar como Desenvolvedora Júnior.</p>
+        </section>
+
+        <!-- SEÇÃO: TRAJETÓRIA CRONOLÓGICA (Baseado no Currículo) -->
+        <section id="formacao">
+            <h2>Minha Trajetória</h2>
+            
+            <div class="timeline">
+                <!-- Início Faculdade -->
+                <div class="tl-container tl-left">
+                    <div class="tl-content glass">
+                        <h3>Jan / 2022</h3>
+                        <h4>Início em Ciência da Computação</h4>
+                        <p><strong>Universidade Cidade de São Paulo (UNICID)</strong><br>Início da formação acadêmica com foco em lógica de programação, Estrutura de Dados, Teoria dos Grafos, IA e Modelagem de Banco de Dados.</p>
+                    </div>
+                </div>
+
+                <!-- Estágio -->
+                <div class="tl-container tl-right">
+                    <div class="tl-content glass">
+                        <h3>Mai / 2024</h3>
+                        <h4>Desenvolvedora Estagiária</h4>
+                        <p><strong>Royal Tecidos</strong><br>Atuação direta como Full Stack (PHP, MySQL), realizando automação de processos, refatoração de código legado e modernização de interfaces de usuário com HTML, CSS e jQuery.</p>
+                    </div>
+                </div>
+
+                <!-- Projeto Autoral -->
+                <div class="tl-container tl-left">
+                    <div class="tl-content glass">
+                        <h3>2024</h3>
+                        <h4>Sistema Centralizado de Varejo</h4>
+                        <p><strong>Projeto Autoral</strong><br>Desenvolvimento de um sistema em C#.NET Core focado em estoque centralizado e caixas independentes, com arquitetura sólida de banco de dados relacional (SQL Server) para múltiplas filiais.</p>
+                    </div>
+                </div>
+
+                <!-- Previsão Formação -->
+                <div class="tl-container tl-right">
+                    <div class="tl-content glass">
+                        <h3>Dez / 2025</h3>
+                        <h4>Conclusão</h4>
+                        <p><strong>Bacharelado</strong><br>Fase final da graduação em Ciência da Computação, consolidando conhecimentos em Engenharia e Qualidade de Software.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: COMPETÊNCIAS & TECNOLOGIAS (Unificadas em Layout Limpo) -->
+        <section id="competencias">
+            <h2>Habilidades Técnicas</h2>
+            
+            <div class="competencias-grid">
+                <div class="comp-card">
+                    <div class="comp-icon"><i class="fas fa-code" style="font-size: 1.5rem; color: white;"></i></div>
+                    <h4>Linguagens</h4>
+                    <p>C# (.NET Core/MVC), PHP, JavaScript</p>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-icon"><i class="fas fa-database" style="font-size: 1.5rem; color: white;"></i></div>
+                    <h4>Banco de Dados</h4>
+                    <p>SQL Server, MySQL, Modelagem Lógica</p>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-icon"><i class="fas fa-laptop-code" style="font-size: 1.5rem; color: white;"></i></div>
+                    <h4>Front-End</h4>
+                    <p>HTML5, CSS3, Bootstrap, jQuery</p>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-icon"><i class="fas fa-tools" style="font-size: 1.5rem; color: white;"></i></div>
+                    <h4>Ferramentas</h4>
+                    <p>Git, GitHub, Visual Studio, VS Code, Figma</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: PORTFÓLIO (Rolagem Horizontal) -->
+        <section id="portifolio">
+            <h2>Meus Trabalhos</h2>
+            
+            <div class="portifolio-grid">
+                <!-- Projeto Sistema C# -->
+                <article class="trabalho-item glass">
+                    <h4>Gestão de Varejo Centralizado</h4>
+                    <div class="badge-container">
+                        <span class="badge">C#.NET Core</span>
+                        <span class="badge">SQL Server</span>
+                        <span class="badge">Arquitetura</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">Sistema completo de gerenciamento de estoque unificado e controle de caixa. Projetado para suportar múltiplas filiais garantindo a integridade dos dados.</p>
+                    <!-- Link Externo direto -->
+                    <a href="https://github.com/EstherDourado" target="_blank" style="color:#b06ab3; font-weight: bold; font-size: 0.9rem; text-decoration: none;"><i class="fab fa-github"></i> Ver repositório completo</a>
+                </article>
+
+                <!-- Projetos Web (Vídeos com scroll horizontal) -->
+                <article class="trabalho-item glass">
+                    <h4>Aplicações Web & UI</h4>
+                    <div class="badge-container">
+                        <span class="badge">HTML5</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                    <p style="font-size: 0.9rem;">Projetos focados na construção de interfaces modernas. Deslize para ver os vídeos. Clique para ir ao repositório.</p>
+                    
+                    <!-- Container de Scroll -->
+                    <div class="scroll-horizontal">
+                        <!-- Video 1 (Clicável para GitHub) -->
+                        <div class="media-item" onclick="window.open('https://github.com/EstherDourado/Projetos-Frontend/tree/main/Restaurantes', '_blank')" title="Ver no GitHub">
+                            <!-- Fallback de estilo se o vídeo não carregar -->
+                            <video autoplay loop muted playsinline>
+                                <source src="img/Video Project.mp4" type="video/mp4">
+                                <!-- Fallback source (Caso use o nome enviado na raiz) -->
+                                <source src="Video Project.mp4" type="video/mp4">
+                            </video>
+                            <div class="media-overlay"><i class="fab fa-github"></i></div>
+                        </div>
+                        
+                        <!-- Video 2 (Clicável para GitHub) -->
+                        <div class="media-item" onclick="window.open('https://github.com/EstherDourado/Projetos-Frontend/tree/main/Efeito%20Slide', '_blank')" title="Ver no GitHub">
+                            <video autoplay loop muted playsinline>
+                                <source src="img/Animais Selvagens.mp4" type="video/mp4">
+                                <source src="Animais Selvagens.mp4" type="video/mp4">
+                            </video>
+                            <div class="media-overlay"><i class="fab fa-github"></i></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto Figma -->
+                <article class="trabalho-item glass">
+                    <h4>Prototipação (Figma)</h4>
+                    <div class="badge-container">
+                        <span class="badge">Figma</span>
+                        <span class="badge">UI/UX</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">Concepção visual e fluxo de usuários para aplicativos focados em delivery e cardápios.</p>
+                    <div class="scroll-horizontal">
+                        <div class="media-item" style="flex: 0 0 100%;">
+                             <iframe src="https://embed.figma.com/design/YbsFw3DCXX28fMcDW3m1ix/Carrosel-3D?embed-host=share" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="media-item" style="flex: 0 0 100%;">
+                           <iframe src="https://embed.figma.com/design/NKy2gtDgE2XSRkxBXNb6Cs/Delivery-App?embed-host=share" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="media-item" style="flex: 0 0 100%;">
+                            <iframe src="https://embed.figma.com/design/r1a38OjrkbY1Zh7b5qo9Yl/Cardapio?embed-host=share" allowfullscreen ></iframe>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CONTATO -->
+        <section id="contato">
+            <h2>Vamos Conversar?</h2>
+            <div class="contato-container glass">
+                <div class="contato-form">
+                    <h3 style="margin-bottom: 10px; color: #b06ab3;">Envie uma mensagem direta</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Preencha os campos abaixo e o seu aplicativo de e-mail abrirá com a mensagem formatada para mim.</p>
+                    
+                    <form method="post" id="contato_form">
+                        <div class="input-group">
+                            <input type="text" id="nome" name="nome" placeholder="Seu Nome / Empresa" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="assuntoEmail" name="assuntoEmail" placeholder="Assunto do e-mail" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="mensagemEmail" name="mensagemEmail" rows="4" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" id="submitButton" style="width: 100%; border: none; font-size: 1rem; margin-top: 10px;">
+                            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Enviar email
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Redes e Informações -->
+                <div class="contato-infos">
+                    <h3 style="margin-bottom: 10px; color: #b06ab3;">Minhas Redes</h3>
+                    
+                    <a href="mailto:estherdb03@gmail.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>estherdb03@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/esther-batista" target="_blank" class="contact-card">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>/in/esther-batista</span>
+                    </a>
+                    <a href="https://github.com/EstherDourado" target="_blank" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span>EstherDourado</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com <span style="color: #b06ab3;">❤</span> por <strong>Esther Batista</strong> &copy; 2026</p>
+    </footer>
+
+    <!-- SCRIPT DO FORMULÁRIO DE EMAIL -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        emailjs.init("4trm4XpnvqZDT0qZH");
+
+        document.getElementById("contato_form").addEventListener("submit",function(event){
+            event.preventDefault(); // Impede recarregamento da página
+
+            const formData = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                assunto: document.getElementById('assuntoEmail').value,
+                mensagem: document.getElementById('mensagemEmail').value
+            } 
+
+            const serviceID = "service_79bg0lx";
+            const tamplateID ="template_spds9kh";
+            
+            const submitButton = document.getElementById('submitButton');
+            
+            submitButton.textContent = "Enviando...";
+            submitButton.disabled = true;
+
+            emailjs.send(serviceID, tamplateID, formData).then(()=>{
+                    Toastify({
+                        text: "E-mail enviado com sucesso",
+                        duration: 4000,
+                        style:{
+                            background: "linear-gradient(45deg, #b06ab3, #4568dc)",
+                            color: "#fffff"
+                        }
+                    }).showToast();
+
+                    document.getElementById("contato_form").reset();
+                }).catch((error)=>{
+                    Toastify({
+                        text: "Erro ao tentar enviar e-mail",
+                        duration: 4000,
+                        style:{
+                            background: "#b06ab3",
+                            color: "#fffff"
+                        }
+                    }).showToast();
+
+                }).finally(()=>{
+                    submitButton.textContent = "Enviar email";
+                    submitButton.disabled = false;
+                }) 
+        });
+        
+    </script>
+</body>
+</html>
